@@ -91,3 +91,8 @@
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition-duration: 0s !important; }
 }
+#lovable-badge, a[href*="lovable.dev"] {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
