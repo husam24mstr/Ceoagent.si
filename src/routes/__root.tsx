@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "CeoAgent.si" },
+      { title: "CeoAgent" },
       { name: "description", content: "The Super Intelligence Engine for C-Level Leaders." },
       { property: "og:title", content: "CeoAgent.si" },
       { property: "og:description", content: "The Super Intelligence Engine for C-Level Leaders." },
