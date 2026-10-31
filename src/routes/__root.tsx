@@ -92,7 +92,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: 'icon', href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B0F19'/><text x='50%' y='50%' font-size='60' font-family='sans-serif' font-weight='bold' fill='%23ffffff' dominant-baseline='central' text-anchor='middle'>CA</text></svg>" }
     ],
   }),
   shellComponent: RootShell,
