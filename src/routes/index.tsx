@@ -159,7 +159,9 @@ function Capabilities() {
       <div className="mt-12 grid gap-8 lg:grid-cols-[1.2fr_1fr]">
         <motion.div {...fadeUp} className="flex flex-col gap-3">
           {capabilities.map(({ icon: Icon, title }, i) => (
-            <button
+            <Button
+              variant="glass"
+              aria-pressed={i === active}
               key={title}
               onClick={() => setActive(i)}
               className={`h-auto min-h-16 w-full justify-start whitespace-normal rounded-lg px-4 py-3 text-left ${
