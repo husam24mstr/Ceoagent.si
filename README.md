@@ -1,40 +1,32 @@
-# Founder Strategy Copilot
+#  CeoAgent.si - Premium Digital Asset & SaaS Codebase
 
-Build a premium, enterprise-grade dark mode landing page for an AI SaaS startup called "CeoAgent.si". The concept is an AI Super Intelligence tool designed to act as a fractional CEO and strategic co-pilot for founders and C-level executives.
+> **Status:** The premium domain name **CeoAgent.si** and its accompanying production-ready codebase are currently available for acquisition. 
 
-Visual Theme: Executive Dark Mode. Deep graphite/black background with subtle glassmorphism cards and electric blue and subtle gold accents to convey luxury and advanced technology. Clean, minimalist typography (like Inter).
+Welcome to the official repository for the `CeoAgent.si` frontend environment. This repository houses the enterprise-grade, dark-mode landing page designed for a high-end "Super Intelligence" (SI) executive co-pilot and SaaS platform.
 
-Structure & Sections:
+##  The Asset Package
+When you acquire **CeoAgent.si**, you are not just buying a highly brandable, category-defining `.si` (Super Intelligence) domain name. You are acquiring a **turnkey brand package**. 
 
-Hero Section: A bold, commanding headline ("Super Intelligence for Strategic Leaders"). A brief subtitle explaining the AI agent. Include a glowing primary CTA button saying "Request Early Access".
+The acquisition includes:
+1. **The Domain Name:** `CeoAgent.si` (Transferable immediately via Dynadot).
+2. **The Codebase:** Full ownership of this responsive, high-performance React/Tailwind codebase.
+3. **The Brand Identity:** The pure-CSS geometric "CA" logo and the complete "Executive Dark Mode" design system.
 
-Dashboard Mockup: Below the hero, generate a sleek, abstract UI mockup or graphic showing a "CEO Dashboard" with analytics, strategy insights, and an AI chat interface.
+##  Tech Stack & Performance
+This front-end is built with modern, scalable technologies, ready to be connected to your backend models:
+- **Framework:** React.js 
+- **Styling:** Tailwind CSS (Custom Dark Mode Configuration)
+- **Animations:** Framer Motion (Smooth, enterprise-grade micro-interactions)
+- **Deployment:** 100% Vercel & Cloudflare Pages ready (Zero-config deployment)
+- **Design:** Fully responsive across Mobile, Tablet, and Desktop using strict Tailwind breakpoints.
 
-Features (3 columns): Highlight features: "Strategic Decision Engine", "Automated Board Reports", and "Cross-Department Analytics". Use modern iconography.
+##  Acquisition & Contact
+This asset is perfect for AI startups, fractional executive services, or enterprise B2B software companies looking for an authoritative brand presence from Day 1.
 
-Domain Acquisition Banner: This is the most important part. Create a highly visible, sticky top banner or a dedicated section at the bottom with a distinct color (like a subtle gold or blue gradient) that says: "CeoAgent.si is a premium digital asset currently available for acquisition." with a "Buy this Domain" button.
+*   **Acquire securely via Dynadot:** [Buy CeoAgent.si Here](https://www.dynadot.com/market/user-listings/ceoagent.si)
+*   **Live Preview:** [https://www.ceoagent.si](https://www.ceoagent.si)
 
-Ensure the layout is fully responsive, looks highly professional, and has smooth micro-interactions.
+For private inquiries, direct offers, or technical questions regarding the codebase transfer, please contact the owner directly:
+ **houssamlahrazli16@gmail.com**
 
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://founder-strategy-copilot.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/57aed67f-9bbf-4d32-b5c1-c051487b82da).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+---
