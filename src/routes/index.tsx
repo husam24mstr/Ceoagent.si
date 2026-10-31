@@ -212,7 +212,7 @@ function HeroGraphic() {
 
 function Capabilities() {
   const [active, setActive] = useState(0);
-  const current = capabilities[active];
+  const current = capabilities[active]!;
   const MetricIcon = current.icon;
 
   return (
