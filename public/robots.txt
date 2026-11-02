@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://founder-strategy-copilot.lovable.app/sitemap.xml

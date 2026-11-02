@@ -11,3 +11,5 @@
 
 - Keep acquisition destinations and contact identity in the shared brand module so every CTA uses the same destination.
 - Use the shared Button premium/glass/gold variants for landing-page commands so interaction styling stays consistent.
+- Keep the illustrative SI terminal and private offer form in separate client components; offers are validated and encoded into email drafts, not stored or automatically delivered.
+- Derive sitemap URLs from required route staticData.sitemap decisions using the versioned helper; omit lastmod without authoritative page-specific timestamps.
