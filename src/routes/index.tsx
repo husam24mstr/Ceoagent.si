@@ -31,25 +31,35 @@ import {
 import { Button } from "@/components/ui/button";
 import { ACQUISITION_URL, CONTACT_EMAIL } from "@/lib/brand";
 import infrastructure from "@/assets/enterprise-infrastructure.jpg";
+import { SIChatDemo } from "@/components/si-chat-demo";
+import { PrivateOfferForm } from "@/components/private-offer-form";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
-      { title: "CeoAgent.si — The Super Intelligence Engine for C-Level Leaders" },
+      { title: "CeoAgent.si | Super Intelligence Engine" },
       {
         name: "description",
         content:
-          "CeoAgent.si is a Super Intelligence engine that acts as a fractional CEO and strategic co-pilot for founders and C-level executives.",
+          "Premium digital asset and turnkey SaaS frontend available for acquisition.",
       },
-      { property: "og:title", content: "CeoAgent.si — The Super Intelligence Engine for C-Level Leaders" },
+      { property: "og:title", content: "CeoAgent.si | Super Intelligence Engine" },
       {
         property: "og:description",
         content:
-          "A Super Intelligence engine that acts as a fractional CEO and strategic co-pilot for founders and C-level executives.",
+          "Premium digital asset and turnkey SaaS frontend available for acquisition.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:site_name", content: "CeoAgent.si" },
+      { property: "og:url", content: "https://founder-strategy-copilot.lovable.app/" },
+      { property: "og:locale", content: "en_US" },
+      { name: "twitter:title", content: "CeoAgent.si | Super Intelligence Engine" },
+      { name: "twitter:description", content: "Premium digital asset and turnkey SaaS frontend available for acquisition." },
+      { name: "robots", content: "index, follow" },
     ],
+    links: [{ rel: "canonical", href: "https://founder-strategy-copilot.lovable.app/" }],
   }),
   component: Index,
 });
@@ -271,6 +281,7 @@ function Index() {
       </section>
 
       {/* Capabilities */}
+      <SIChatDemo />
       <Capabilities />
 
       {/* How it works */}
@@ -325,7 +336,7 @@ function Index() {
           <p className="mt-6 text-xs font-semibold uppercase">An exceptional digital asset</p>
           <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-5xl">CeoAgent.si is a premium digital asset currently available for acquisition.</h2>
           <Button asChild variant="gold" className="mt-9 h-12 px-8"><a href={DYNADOT} target="_blank" rel="noopener noreferrer">Buy this Domain <ArrowUpRight /></a></Button>
-          <p className="mt-7 text-sm leading-relaxed">For private inquiries or direct offers, contact: <a href={CONTACT} className="inline-block font-semibold underline underline-offset-4 break-all">{CONTACT_EMAIL}</a></p>
+          <div className="mx-auto max-w-2xl"><PrivateOfferForm /></div>
         </motion.div>
       </section>
 
