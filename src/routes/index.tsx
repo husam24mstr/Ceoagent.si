@@ -30,9 +30,29 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { ACQUISITION_URL, CONTACT_EMAIL } from "@/lib/brand";
-import infrastructure from "@/assets/enterprise-infrastructure.jpg";
 import { SIChatDemo } from "@/components/si-chat-demo";
 import { PrivateOfferForm } from "@/components/private-offer-form";
+
+function NeuralVisual() {
+  const nodes = [
+    { x: 62, y: 22 }, { x: 78, y: 14 }, { x: 88, y: 30 }, { x: 70, y: 40 },
+    { x: 84, y: 52 }, { x: 58, y: 56 }, { x: 74, y: 68 }, { x: 90, y: 74 },
+    { x: 64, y: 84 }, { x: 82, y: 90 }, { x: 50, y: 34 }, { x: 94, y: 46 },
+  ];
+  const links: [number, number][] = [[0,1],[0,3],[1,2],[2,3],[2,5],[3,4],[3,6],[4,7],[4,11],[5,6],[5,10],[6,8],[7,9],[8,9],[0,10],[6,11]];
+  return (
+    <div className="hero-neural absolute inset-0 -z-20" aria-hidden="true">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        {links.map(([a, b]) => (
+          <line key={`${a}-${b}`} className="stream" x1={nodes[a]!.x} y1={nodes[a]!.y} x2={nodes[b]!.x} y2={nodes[b]!.y} stroke="var(--primary)" strokeOpacity="0.35" strokeWidth="0.18" vectorEffect="non-scaling-stroke" />
+        ))}
+        {nodes.map((n, i) => (
+          <circle key={i} className="node" style={{ animationDelay: `${i * 0.4}s` }} cx={n.x} cy={n.y} r="0.55" fill={i % 3 === 0 ? "var(--gold)" : "var(--primary)"} />
+        ))}
+      </svg>
+    </div>
+  );
+}
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
@@ -174,7 +194,12 @@ function Capabilities() {
               aria-pressed={i === active}
               key={title}
               onClick={() => setActive(i)}
-              className={`h-auto min-h-16 w-full justify-start whitespace-normal rounded-lg px-4 py-3 text-left ${
+              onMouseMove={(e) => {
+                const r = e.currentTarget.getBoundingClientRect();
+                e.currentTarget.style.setProperty("--glow-x", `${e.clientX - r.left}px`);
+                e.currentTarget.style.setProperty("--glow-y", `${e.clientY - r.top}px`);
+              }}
+              className={`cursor-glow h-auto min-h-16 w-full justify-start whitespace-normal rounded-lg px-4 py-3 text-left ${
                 i === active ? "border-primary/60 glow" : "hover:border-primary/30"
               }`}
             >
@@ -254,7 +279,7 @@ function Index() {
       </header>
 
       <section id="services" className="enterprise-hero relative isolate overflow-hidden border-b border-border">
-        <img src={infrastructure} alt="Precision-engineered enterprise server infrastructure" width={1920} height={1024} fetchPriority="high" className="absolute inset-0 -z-20 h-full w-full object-cover object-right" />
+        <NeuralVisual />
         <div className="hero-shade absolute inset-0 -z-10" />
         <div className="mx-auto max-w-6xl px-6 py-20 sm:py-24">
           <motion.div {...fadeUp} className="max-w-2xl">
@@ -263,7 +288,7 @@ function Index() {
             <h2 className="mt-7 max-w-xl text-3xl font-medium leading-tight sm:text-4xl">The Super Intelligence Engine for C-Level Leaders.</h2>
             <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg">Your fractional CEO and strategic co-pilot — anticipating risk, connecting the signals, and delivering decisive executive guidance.</p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Button asChild variant="premium" className="h-12 px-6"><a href="#capabilities">Explore Capabilities <ArrowRight /></a></Button>
+              <Button asChild variant="premium" className="breathing h-12 px-6"><a href="#capabilities">Explore Capabilities <ArrowRight /></a></Button>
               <Button asChild variant="glass" className="h-12 px-6"><a href="#contact">Contact Us <ArrowUpRight /></a></Button>
             </div>
             <div className="mt-14 flex flex-wrap gap-x-8 gap-y-4 border-t border-border pt-6 text-xs text-muted-foreground"><span>Executive-grade intelligence</span><span>Global strategic perspective</span><span>Always-on analysis</span></div>
@@ -330,12 +355,12 @@ function Index() {
         </div>
       </section>
 
-      <section id="contact" className="acquisition-band px-6 py-20 text-gold-foreground sm:py-24">
+      <section id="contact" className="acquisition-band px-6 py-20 sm:py-24">
         <motion.div {...fadeUp} className="mx-auto max-w-5xl text-center">
-          <Gem className="mx-auto h-8 w-8" />
-          <p className="mt-6 text-xs font-semibold uppercase">An exceptional digital asset</p>
-          <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-5xl">CeoAgent.si is a premium digital asset currently available for acquisition.</h2>
-          <Button asChild variant="gold" className="mt-9 h-12 px-8"><a href={DYNADOT} target="_blank" rel="noopener noreferrer">Buy this Domain <ArrowUpRight /></a></Button>
+          <Gem className="mx-auto h-8 w-8 text-gold icon-pulse" />
+          <p className="mt-6 text-xs font-semibold uppercase text-muted-foreground">An exceptional digital asset</p>
+          <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-5xl"><span className="text-gold">CeoAgent.si</span> is a premium digital asset currently available for acquisition.</h2>
+          <Button asChild variant="gold" className="mt-9 h-12 px-8 shadow-[0_0_28px_-6px_var(--gold)] hover:shadow-[0_0_40px_-4px_var(--gold)]"><a href={DYNADOT} target="_blank" rel="noopener noreferrer">Buy this Domain <ArrowUpRight /></a></Button>
           <div className="mx-auto max-w-2xl"><PrivateOfferForm /></div>
         </motion.div>
       </section>
