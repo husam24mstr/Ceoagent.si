@@ -82,7 +82,51 @@
 .premium-button:hover { background-image: linear-gradient(color-mix(in oklab, var(--foreground) 8%, transparent), color-mix(in oklab, var(--foreground) 2%, transparent)); box-shadow: var(--shadow-button); transform: translateY(-1px); }
 .nav-link { transition: color .2s; }
 .nav-link:hover { color: var(--gold); }
-.acquisition-band { background: var(--gradient-gold); }
+.acquisition-band { background: var(--background); border-top: 1px solid color-mix(in oklab, var(--gold) 25%, transparent); }
+.acquisition-band .glass-input {
+  background: color-mix(in oklab, var(--foreground) 6%, transparent);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  transition: border-color .25s, box-shadow .25s;
+}
+.acquisition-band .glass-input:focus { border-color: color-mix(in oklab, var(--gold) 60%, transparent); box-shadow: 0 0 0 3px color-mix(in oklab, var(--gold) 18%, transparent); outline: none; }
+.acquisition-band .glass-input::placeholder { color: var(--muted-foreground); }
+
+@keyframes breathe { 0%, 100% { transform: scale(1); box-shadow: var(--shadow-button); } 50% { transform: scale(1.02); box-shadow: 0 0 32px -6px color-mix(in oklab, var(--primary) 65%, transparent); } }
+.breathing { animation: breathe 3.2s ease-in-out infinite; }
+@keyframes float-depth { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+.float-depth { animation: float-depth 7s ease-in-out infinite; }
+@keyframes icon-pulse { 0%, 100% { opacity: 1; filter: drop-shadow(0 0 0 transparent); } 50% { opacity: .8; filter: drop-shadow(0 0 10px color-mix(in oklab, var(--gold) 55%, transparent)); } }
+.icon-pulse { animation: icon-pulse 4s ease-in-out infinite; }
+
+.cursor-glow { position: relative; overflow: hidden; }
+.cursor-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(180px circle at var(--glow-x, 50%) var(--glow-y, 50%), color-mix(in oklab, var(--primary) 22%, transparent), transparent 70%);
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+}
+.cursor-glow:hover::before { opacity: 1; }
+
+.hero-neural { position: absolute; inset: 0; overflow: hidden; }
+.hero-neural::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--primary) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--primary) 7%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 70% at 65% 40%, black, transparent 75%);
+}
+.hero-neural svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+@keyframes stream-dash { to { stroke-dashoffset: -400; } }
+.hero-neural .stream { stroke-dasharray: 6 14; animation: stream-dash 9s linear infinite; }
+@keyframes node-pulse { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+.hero-neural .node { animation: node-pulse 4s ease-in-out infinite; }
 @media (max-width: 640px) {
   .enterprise-hero { min-height: auto; }
   .hero-shade { background: color-mix(in oklab, var(--background) 86%, transparent); }
