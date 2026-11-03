@@ -8,3 +8,9 @@
 - [x] Add interactive SI conversation and confidential offer form.
 - [x] Update sharing metadata, install sitemap, and correct SEO finding.
 - [x] Verify desktop/mobile flows and request republication.
+
+# Premium SI visual upgrades
+- [ ] Darken acquisition band with glass form inputs and gold accents only.
+- [ ] Add SI typing effect, cursor glow on capability cards, breathing pulses, floating chat depth.
+- [ ] Replace server-rack hero with abstract neural/grid visual.
+- [ ] Re-verify desktop/mobile and publish.
