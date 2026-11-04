@@ -10,7 +10,12 @@
 - [x] Verify desktop/mobile flows and request republication.
 
 # Premium SI visual upgrades
-- [ ] Darken acquisition band with glass form inputs and gold accents only.
-- [ ] Add SI typing effect, cursor glow on capability cards, breathing pulses, floating chat depth.
-- [ ] Replace server-rack hero with abstract neural/grid visual.
-- [ ] Re-verify desktop/mobile and publish.
+- [x] Darken acquisition band with glass form inputs and gold accents only.
+- [x] Add SI typing effect, cursor glow on capability cards, breathing pulses, floating chat depth.
+- [x] Replace server-rack hero with abstract neural/grid visual.
+- [ ] Publish latest changes (awaiting publication request).
+
+# Interactive engine prototype
+- [ ] Add eight linked engine pages and themed explanations.
+- [ ] Add scenario consoles with staged simulations and chart reports.
+- [ ] Extend metadata/sitemap and verify tests and desktop/mobile flows.
