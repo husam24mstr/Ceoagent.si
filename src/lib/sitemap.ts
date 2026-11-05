@@ -24,7 +24,7 @@ export function sitemapStaticPaths(router: AnyRouter): string[] {
     if (!isSitemapRouteIncluded(route)) continue;
     const parameterSets = /[$*]/.test(route.fullPath) ? route.options.staticData?.sitemapParams ?? [] : [{}];
     for (const params of parameterSets) {
-      const location = router.buildLocation({ to: route.fullPath, params });
+      const location = router.buildLocation({ to: route.fullPath, params: () => params });
       const path = sitemapPathForLocation(router, location, route.id);
       if (path !== undefined) paths.add(path);
     }
