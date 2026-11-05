@@ -146,6 +146,10 @@
 }
 .engine-input:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 .engine-input:disabled { opacity: .6; }
+.console-output { height: 860px; }
+.synthesis-copy { position: relative; overflow-wrap: anywhere; }
+@media (min-width: 640px) { .console-output { height: 780px; } }
+@media (min-width: 1024px) { .console-output { height: 760px; } }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition-duration: 0s !important; }
