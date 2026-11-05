@@ -24,7 +24,11 @@ export function sitemapStaticPaths(router: AnyRouter): string[] {
     if (!isSitemapRouteIncluded(route)) continue;
     const parameterSets = /[$*]/.test(route.fullPath) ? route.options.staticData?.sitemapParams ?? [] : [{}];
     for (const params of parameterSets) {
-      const location = router.buildLocation({ to: route.fullPath, params: () => params });
+      const concretePath = route.fullPath.replace(/\$([A-Za-z0-9_]+)/g, (segment: string, key: string) => {
+        const value = params[key];
+        return value === undefined ? segment : encodeURIComponent(value);
+      });
+      const location = router.buildLocation({ to: concretePath });
       const path = sitemapPathForLocation(router, location, route.id);
       if (path !== undefined) paths.add(path);
     }
