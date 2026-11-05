@@ -3,11 +3,12 @@ import { createRouter } from "@tanstack/react-router";
 import { describe, expect, it } from "vitest";
 import { routeTree } from "@/routeTree.gen";
 import { sitemapStaticPaths, sitemapXML } from "@/lib/sitemap";
+import { engines } from "@/lib/engines";
 
 describe("Public sitemap", () => {
-  it("includes only the public homepage and excludes the sitemap endpoint", () => {
+  it("includes the homepage and all eight engine URLs but not the sitemap endpoint", () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
-    expect(sitemapStaticPaths(router)).toEqual(["/"]);
+    expect(sitemapStaticPaths(router)).toEqual(["/", ...engines.map(engine => `/engines/${engine.slug}`)].sort());
   });
   it("uses the published origin without fabricated modification dates", () => {
     const xml = sitemapXML("https://founder-strategy-copilot.lovable.app", [{ path: "/" }]);

@@ -5,7 +5,7 @@ export type SimulationInput = { value: number; horizon: number; scenario: number
 export function simulateEngine(engine: Engine, input: SimulationInput) {
   if (!Number.isFinite(input.value) || input.value <= 0 || input.value > 1e12) throw new Error("Enter a positive value up to 1 trillion.");
   if (![3, 6, 12].includes(input.horizon) || !Number.isInteger(input.scenario) || input.scenario < 0 || input.scenario >= engine.scenarios.length) throw new Error("Select a valid scenario and horizon.");
-  const defensive = ["risk-mitigation", "capital-efficiency"].includes(engine.slug);
+   const defensive = engine.slug === "risk-mitigation" || engine.slug === "capital-efficiency";
   const rate = defensive ? [-0.035, -0.06, -0.018][input.scenario] ?? -0.035 : [0.025, 0.045, 0.012][input.scenario] ?? 0.025;
   const data = Array.from({ length: input.horizon + 1 }, (_, month) => ({ month: `M${month}`, baseline: Math.round(input.value * Math.pow(1 + (defensive ? -0.055 : 0.01), month)), simulated: Math.round(input.value * Math.pow(1 + rate, month)) }));
   const final = data.at(-1);

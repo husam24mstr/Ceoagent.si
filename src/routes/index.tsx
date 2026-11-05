@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import { useState } from "react";
 import {
@@ -32,6 +32,7 @@ import { Button } from "@/components/ui/button";
 import { ACQUISITION_URL, CONTACT_EMAIL } from "@/lib/brand";
 import { SIChatDemo } from "@/components/si-chat-demo";
 import { PrivateOfferForm } from "@/components/private-offer-form";
+import { engines } from "@/lib/engines";
 
 function NeuralVisual() {
   const nodes = [
@@ -43,9 +44,12 @@ function NeuralVisual() {
   return (
     <div className="hero-neural absolute inset-0 -z-20" aria-hidden="true">
       <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-        {links.map(([a, b]) => (
-          <line key={`${a}-${b}`} className="stream" x1={nodes[a]!.x} y1={nodes[a]!.y} x2={nodes[b]!.x} y2={nodes[b]!.y} stroke="var(--primary)" strokeOpacity="0.35" strokeWidth="0.18" vectorEffect="non-scaling-stroke" />
-        ))}
+        {links.map(([a, b]) => {
+          const start = nodes[a];
+          const end = nodes[b];
+          if (!start || !end) return null;
+          return <line key={`${a}-${b}`} className="stream" x1={start.x} y1={start.y} x2={end.x} y2={end.y} stroke="var(--primary)" strokeOpacity="0.35" strokeWidth="0.18" vectorEffect="non-scaling-stroke" />;
+        })}
         {nodes.map((n, i) => (
           <circle key={i} className="node" style={{ animationDelay: `${i * 0.4}s` }} cx={n.x} cy={n.y} r="0.55" fill={i % 3 === 0 ? "var(--gold)" : "var(--primary)"} />
         ))}
@@ -190,10 +194,11 @@ function Capabilities() {
         <motion.div {...fadeUp} className="flex flex-col gap-3">
           {capabilities.map(({ icon: Icon, title }, i) => (
             <Button
+              asChild
               variant="glass"
-              aria-pressed={i === active}
               key={title}
-              onClick={() => setActive(i)}
+              onMouseEnter={() => setActive(i)}
+              onFocus={() => setActive(i)}
               onMouseMove={(e) => {
                 const r = e.currentTarget.getBoundingClientRect();
                 e.currentTarget.style.setProperty("--glow-x", `${e.clientX - r.left}px`);
@@ -203,6 +208,7 @@ function Capabilities() {
                 i === active ? "border-primary/60 glow" : "hover:border-primary/30"
               }`}
             >
+              <Link to="/engines/$slug" params={{ slug: engines[i]?.slug ?? "predictive-market" }}>
               <span
                 className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition ${
                   i === active ? "bg-primary text-primary-foreground" : "bg-primary/15 text-primary"
@@ -216,6 +222,7 @@ function Capabilities() {
               <ArrowRight
                 className={`ml-auto h-4 w-4 transition ${i === active ? "text-primary" : "text-muted-foreground/40"}`}
               />
+              </Link>
             </Button>
           ))}
         </motion.div>

@@ -3,6 +3,7 @@ import type { AnyRoute, AnyRouter, ParsedLocation } from "@tanstack/react-router
 declare module "@tanstack/react-router" {
   interface StaticDataRouteOption {
     sitemap: boolean | "exclude-subtree";
+    sitemapParams?: Record<string, string>[];
   }
 }
 export const sitemapRouteInventoryVersion = 1;
@@ -20,10 +21,13 @@ export function isSitemapRouteIncluded(route: AnyRoute | undefined): boolean {
 export function sitemapStaticPaths(router: AnyRouter): string[] {
   const paths = new Set<string>();
   for (const route of Object.values(router.routesById) as AnyRoute[]) {
-    if (!isSitemapRouteIncluded(route) || /[$*]/.test(route.fullPath)) continue;
-    const location = router.buildLocation({ to: route.fullPath });
-    const path = sitemapPathForLocation(router, location, route.id);
-    if (path !== undefined) paths.add(path);
+    if (!isSitemapRouteIncluded(route)) continue;
+    const parameterSets = /[$*]/.test(route.fullPath) ? route.options.staticData?.sitemapParams ?? [] : [{}];
+    for (const params of parameterSets) {
+      const location = router.buildLocation({ to: route.fullPath, params });
+      const path = sitemapPathForLocation(router, location, route.id);
+      if (path !== undefined) paths.add(path);
+    }
   }
   return [...paths].sort();
 }
