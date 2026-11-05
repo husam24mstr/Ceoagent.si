@@ -131,6 +131,21 @@
   .enterprise-hero { min-height: auto; }
   .hero-shade { background: color-mix(in oklab, var(--background) 86%, transparent); }
 }
+.engine-page { --background: #0B0F19; }
+.engine-theme-blue { --primary: oklch(0.7 0.18 255); }
+.engine-theme-emerald { --primary: oklch(0.76 0.16 160); }
+.engine-theme-violet { --primary: oklch(0.76 0.14 305); }
+.engine-theme-rose { --primary: oklch(0.76 0.15 15); }
+.engine-theme-cyan { --primary: oklch(0.78 0.13 215); }
+.engine-theme-gold { --primary: var(--gold); }
+.engine-theme-teal { --primary: oklch(0.77 0.12 185); }
+.engine-input {
+  width: 100%; min-width: 0; min-height: 44px; border-radius: var(--radius);
+  border: 1px solid var(--border); background: var(--background); color: var(--foreground);
+  padding: 10px 12px; font: inherit; font-size: 16px; color-scheme: dark;
+}
+.engine-input:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.engine-input:disabled { opacity: .6; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition-duration: 0s !important; }

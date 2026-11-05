@@ -13,3 +13,4 @@
 - Use the shared Button premium/glass/gold variants for landing-page commands so interaction styling stays consistent.
 - Keep the illustrative SI terminal and private offer form in separate client components; offers are validated and encoded into email drafts, not stored or automatically delivered.
 - Derive sitemap URLs from required route staticData.sitemap decisions using the versioned helper; omit lastmod without authoritative page-specific timestamps.
+- Keep engine definitions and deterministic simulation logic in shared modules and render their console through one dynamic route; enumerate public parameter sets in route staticData so the sitemap includes concrete engine URLs.

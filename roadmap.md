@@ -16,6 +16,7 @@
 - [ ] Publish latest changes (awaiting publication request).
 
 # Interactive engine prototype
-- [ ] Add eight linked engine pages and themed explanations.
-- [ ] Add scenario consoles with staged simulations and chart reports.
-- [ ] Extend metadata/sitemap and verify tests and desktop/mobile flows.
+- [x] Fix reported prototype errors and verify engine navigation and simulations.
+- [x] Add eight linked engine pages and themed explanations.
+- [x] Add scenario consoles with staged simulations and chart reports.
+- [x] Extend metadata/sitemap and verify tests and desktop/mobile flows.

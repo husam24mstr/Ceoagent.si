@@ -52,7 +52,7 @@ export function EngineConsole({ engine }: { engine: Engine }) {
         <div className="min-w-0 p-5 sm:p-7" aria-busy={busy}>
           <AnimatePresence mode="wait">
             {busy ? <motion.div key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex min-h-[410px] flex-col justify-center">
-              <Cpu className="mb-8 h-12 w-12 animate-pulse text-primary" /><div role="status" aria-live="polite" className="text-lg font-medium">{simulationStages[stage]}</div>
+               <Cpu className="mb-8 h-12 w-12 animate-pulse text-primary" /><div role="status" aria-live="polite" className="text-lg font-medium">{simulationStages[stage ?? 0]}</div>
               <div className="mt-7 space-y-4">{simulationStages.map((text, index) => <div key={text} className={`flex items-center gap-3 text-sm ${index <= (stage ?? 0) ? "text-foreground" : "text-muted-foreground"}`}>{index < (stage ?? 0) ? <Check className="h-4 w-4 text-primary" /> : <span className="h-4 w-4 rounded-full border border-border" />}{text}</div>)}</div>
               <div className="mt-8 h-1 overflow-hidden rounded-full bg-accent"><motion.div className="h-full bg-primary" initial={{ width: "5%" }} animate={{ width: `${((stage ?? 0) + 1) * 32}%` }} /></div>
             </motion.div> : report ? <motion.div key="report" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
