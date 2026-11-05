@@ -1,6 +1,6 @@
 import type { Engine } from "./engines";
 
-export const simulationStages = ["Ingesting data...", "Running predictive models...", "Generating executive brief..."] as const;
+export const simulationStages = ["Initializing SI Core...", "Ingesting historical datasets...", "Running Monte Carlo simulations...", "Synthesizing executive brief..."] as const;
 export type SimulationInput = { value: number; horizon: number; scenario: number };
 export function simulateEngine(engine: Engine, input: SimulationInput) {
   if (!Number.isFinite(input.value) || input.value <= 0 || input.value > 1e12) throw new Error("Enter a positive value up to 1 trillion.");
@@ -13,5 +13,10 @@ export function simulateEngine(engine: Engine, input: SimulationInput) {
   const final = data.at(-1);
   if (!final) throw new Error("No simulation data.");
   const change = ((final.simulated / input.value - 1) * 100);
-   return { data, final: final.simulated, change, difference: final.simulated - final.baseline, scenario, horizon: input.horizon, inputValue: input.value, summary: `Under the ${scenario.toLowerCase()} scenario, ${engine.measure.toLowerCase()} is modeled at ${new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(final.simulated)} ${engine.unit} after ${input.horizon} months (${change >= 0 ? "+" : ""}${change.toFixed(1)}% versus the starting position). ${engine.action}` };
+   const synthesis = [
+     `Under the ${scenario.toLowerCase()} scenario, ${engine.measure.toLowerCase()} is projected from ${new Intl.NumberFormat("en-US").format(input.value)} to ${new Intl.NumberFormat("en-US").format(final.simulated)} ${engine.unit} over ${input.horizon} months (${change >= 0 ? "+" : ""}${change.toFixed(1)}%).`,
+     engine.action,
+     `Review the ${engine.source.toLowerCase()} against the modeled baseline monthly, and recalibrate the ${engine.model.toLowerCase()} before committing capital if the observed trajectory diverges.`,
+   ];
+   return { data, final: final.simulated, change, difference: final.simulated - final.baseline, scenario, horizon: input.horizon, inputValue: input.value, synthesis, summary: synthesis.join(" ") };
 }

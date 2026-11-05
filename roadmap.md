@@ -16,6 +16,7 @@
 - [ ] Publish latest changes (awaiting publication request).
 
 # Interactive engine prototype
+- [ ] Upgrade console processing, synthesis, actions, and stable layouts; verify all engines.
 - [x] Fix reported prototype errors and verify engine navigation and simulations.
 - [x] Add eight linked engine pages and themed explanations.
 - [x] Add scenario consoles with staged simulations and chart reports.
