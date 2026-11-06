@@ -23,8 +23,6 @@ import {
   ShieldCheck,
   LockKeyhole,
   Fingerprint,
-  Menu,
-  X,
   Zap,
 } from "lucide-react";
 
@@ -33,6 +31,7 @@ import { ACQUISITION_URL, CONTACT_EMAIL } from "@/lib/brand";
 import { SIChatDemo } from "@/components/si-chat-demo";
 import { PrivateOfferForm } from "@/components/private-offer-form";
 import { engines } from "@/lib/engines";
+import { LegalLinks } from "@/components/legal-links";
 
 function NeuralVisual() {
   const nodes = [
@@ -66,13 +65,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Premium digital asset and turnkey SaaS frontend available for acquisition.",
+          "CeoAgent.si - The Super Intelligence Engine for C-Level Leaders. Premium digital asset for acquisition.",
       },
       { property: "og:title", content: "CeoAgent.si | Super Intelligence Engine" },
       {
         property: "og:description",
         content:
-          "Premium digital asset and turnkey SaaS frontend available for acquisition.",
+          "CeoAgent.si - The Super Intelligence Engine for C-Level Leaders. Premium digital asset for acquisition.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -80,7 +79,7 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "https://founder-strategy-copilot.lovable.app/" },
       { property: "og:locale", content: "en_US" },
       { name: "twitter:title", content: "CeoAgent.si | Super Intelligence Engine" },
-      { name: "twitter:description", content: "Premium digital asset and turnkey SaaS frontend available for acquisition." },
+      { name: "twitter:description", content: "CeoAgent.si - The Super Intelligence Engine for C-Level Leaders. Premium digital asset for acquisition." },
       { name: "robots", content: "index, follow" },
     ],
     links: [{ rel: "canonical", href: "https://founder-strategy-copilot.lovable.app/" }],
@@ -266,25 +265,9 @@ function Capabilities() {
 }
 
 function Index() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const navItems = [["Capabilities", "capabilities"], ["Integrations", "integrations"], ["Security", "security"]];
   return (
     <MotionConfig reducedMotion="user">
     <div className="min-h-screen">
-      <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-5 px-6 py-5">
-          <Logo />
-          <nav aria-label="Main navigation" className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-            {navItems.map(([label, id]) => <a key={id} href={`#${id}`} className="nav-link">{label}</a>)}
-          </nav>
-          <div className="flex items-center gap-3">
-            <Button asChild variant="glass" className="h-10 px-4 sm:px-5"><a href={DYNADOT} target="_blank" rel="noopener noreferrer">Acquire Domain <ArrowUpRight /></a></Button>
-            <Button variant="ghost" size="icon" className="md:hidden" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</Button>
-          </div>
-        </div>
-        {menuOpen && <nav aria-label="Mobile navigation" className="flex flex-col gap-5 border-t border-border px-6 py-5 md:hidden">{navItems.map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)} className="nav-link">{label}</a>)}</nav>}
-      </header>
-
       <section id="services" className="enterprise-hero relative isolate overflow-hidden border-b border-border">
         <NeuralVisual />
         <div className="hero-shade absolute inset-0 -z-10" />
@@ -378,7 +361,7 @@ function Index() {
             <div><Logo /><p className="mt-5 text-xl font-semibold">CeoAgent.si</p><p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">Super Intelligence.<br />Executive perspective.</p><a href={CONTACT} className="mt-6 inline-flex items-center gap-2 text-sm text-gold"><Mail className="h-4 w-4" /> Private inquiries <ArrowUpRight className="h-3 w-3" /></a></div>
             <div><h3 className="text-xs font-semibold uppercase text-muted-foreground">Platform</h3><nav aria-label="Platform" className="mt-6 flex flex-col gap-4 text-sm"><a className="nav-link" href="#capabilities">Capabilities</a><a className="nav-link" href="#integrations">Integrations</a><a className="nav-link" href="#about">How It Works</a><a className="nav-link" href="#security">Enterprise Security</a></nav></div>
             <div><h3 className="text-xs font-semibold uppercase text-muted-foreground">Company</h3><nav aria-label="Company" className="mt-6 flex flex-col gap-4 text-sm"><a className="nav-link" href="#contact">Contact</a><a className="nav-link" href={DYNADOT} target="_blank" rel="noopener noreferrer">Acquire Domain ↗</a></nav></div>
-            <div><h3 className="text-xs font-semibold uppercase text-muted-foreground">Trust & Legal</h3><nav aria-label="Trust and legal" className="mt-6 flex flex-col gap-4 text-sm">{["Privacy Policy", "Terms of Service", "Security", "System Status"].map(label => <a href="#" onClick={event => event.preventDefault()} key={label} className="nav-link">{label}</a>)}</nav></div>
+            <div><h3 className="text-xs font-semibold uppercase text-muted-foreground">Trust & Legal</h3><nav aria-label="Trust and legal" className="mt-6 flex flex-col gap-4 text-sm"><LegalLinks /><a href="#security" className="nav-link">Security</a></nav></div>
           </div>
           <div className="flex flex-col justify-between gap-5 border-t border-border pt-7 text-xs text-muted-foreground sm:flex-row"><p>© 2026 CeoAgent.si. All rights reserved.</p><p>San Francisco • Dubai • London</p></div>
         </div>

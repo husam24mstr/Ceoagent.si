@@ -16,8 +16,15 @@
 - [ ] Publish latest changes (awaiting publication request).
 
 # Interactive engine prototype
-- [ ] Upgrade console processing, synthesis, actions, and stable layouts; verify all engines.
+- [x] Upgrade console processing, synthesis, actions, and stable layouts; verify all engines.
 - [x] Fix reported prototype errors and verify engine navigation and simulations.
 - [x] Add eight linked engine pages and themed explanations.
 - [x] Add scenario consoles with staged simulations and chart reports.
 - [x] Extend metadata/sitemap and verify tests and desktop/mobile flows.
+
+# Final enterprise upgrades
+- [x] Add shared persistent header, restricted access dialog, and legal footer dialogs.
+- [x] Add acquisition-focused pricing with the specified prices and contact destination.
+- [x] Replace export with native printing and a professional report layout.
+- [x] Refine mobile consoles and themed 404; update metadata.
+- [x] Verify all engine flows, dialogs, printing, pricing, and mobile layouts.

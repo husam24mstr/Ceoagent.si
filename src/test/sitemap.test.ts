@@ -8,7 +8,7 @@ import { engines } from "@/lib/engines";
 describe("Public sitemap", () => {
   it("includes the homepage and all eight engine URLs but not the sitemap endpoint", () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
-    expect(sitemapStaticPaths(router)).toEqual(["/", ...engines.map(engine => `/engines/${engine.slug}`)].sort());
+    expect(sitemapStaticPaths(router)).toEqual(["/", "/pricing", ...engines.map(engine => `/engines/${engine.slug}`)].sort());
   });
   it("uses the published origin without fabricated modification dates", () => {
     const xml = sitemapXML("https://founder-strategy-copilot.lovable.app", [{ path: "/" }]);
