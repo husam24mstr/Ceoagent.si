@@ -14,4 +14,6 @@
 - Keep the illustrative SI terminal and private offer form in separate client components; offers are validated and encoded into email drafts, not stored or automatically delivered.
 - Derive sitemap URLs from required route staticData.sitemap decisions using the versioned helper; omit lastmod without authoritative page-specific timestamps.
 - Keep engine definitions and deterministic simulation logic in shared modules and render their console through one dynamic route; enumerate public parameter sets in route staticData so the sitemap includes concrete engine URLs.
-- Manage console lifecycle with the shared reducer and timing constants; keep output panels fixed-height with internal scrolling to avoid state-driven layout shifts, and load PDF generation only on export.
+- Manage console lifecycle with the shared reducer and timing constants; keep output panels fixed-height with internal scrolling and use native printing with report-only print styles for export.
+- Mount persistent navigation in the root shell; share accessible animated access/legal dialogs across pages to keep their behavior consistent.
+- Keep pricing definitions in a shared module so displayed tiers and behavioral tests use the same source.

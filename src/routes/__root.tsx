@@ -10,6 +10,9 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import { MotionConfig } from "framer-motion";
+import { SiteHeader } from "@/components/site-header";
+import { StrategicNotFound } from "@/components/strategic-not-found";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -82,6 +85,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:site_name", content: "CeoAgent.si" },
+      { name: "description", content: "CeoAgent.si - The Super Intelligence Engine for C-Level Leaders. Premium digital asset for acquisition." },
+      { property: "og:title", content: "CeoAgent.si | Super Intelligence Engine" },
+      { property: "og:description", content: "CeoAgent.si - The Super Intelligence Engine for C-Level Leaders. Premium digital asset for acquisition." },
     ],
     links: [
       {
@@ -95,7 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   }),
   shellComponent: RootShell,
   component: RootComponent,
-  notFoundComponent: NotFoundComponent,
+  notFoundComponent: StrategicNotFound,
   errorComponent: ErrorComponent,
 });
 
@@ -120,7 +127,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <MotionConfig reducedMotion="user"><SiteHeader /><Outlet /></MotionConfig>
     </QueryClientProvider>
   );
 }
