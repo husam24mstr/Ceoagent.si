@@ -21,3 +21,10 @@
 - [x] Add eight linked engine pages and themed explanations.
 - [x] Add scenario consoles with staged simulations and chart reports.
 - [x] Extend metadata/sitemap and verify tests and desktop/mobile flows.
+
+# Final enterprise upgrades
+- [ ] Add shared persistent header, restricted access dialog, and legal footer dialogs.
+- [ ] Add acquisition-focused pricing with the specified prices and contact destination.
+- [ ] Replace export with native printing and a professional report layout.
+- [ ] Refine mobile consoles and themed 404; update metadata.
+- [ ] Verify all engine flows, dialogs, printing, pricing, and mobile layouts.
